@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 class PofileController extends Controller
 {
-    //
+    //メンタリングテスト
     public function add ()
     {
         return view('admin.profile.create');
