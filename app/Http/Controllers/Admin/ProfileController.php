@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PofileController extends Controller
+class ProfileController extends Controller
 {
     //メンタリングテスト
     public function add ()
