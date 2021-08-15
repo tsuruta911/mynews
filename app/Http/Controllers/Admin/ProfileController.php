@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 
 // 以下を追記することでProfile Modelが扱えるようになる
 use App\Profile;
+// 以下を追記
+use App\History2;
+
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -27,8 +31,7 @@ class ProfileController extends Controller
       
        // フォームから送信されてきた_tokenを削除する
        unset($form['_token']);
-       // フォームから送信されてきたimageを削除する
-       unset($form['image']);
+       
        
        // データベースに保存する
        $profile->fill($form);
@@ -76,6 +79,11 @@ class ProfileController extends Controller
       unset($profile_form['_token']);
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
+      
+      $history2 = new History2;
+        $history2->profile_id = $profile->id;
+        $history2->edited_at = Carbon::now();
+        $history2->save();
 
       return redirect('admin/profile');
   }
