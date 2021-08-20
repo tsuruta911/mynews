@@ -17,7 +17,6 @@ class CreateProfilehistoriesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('profile_id');
             $table->string('edited_at');
-            
             $table->timestamps();
         });
     }
@@ -27,12 +26,8 @@ class CreateProfilehistoriesTable extends Migration
      *
      * @return void
      */
-    
-        
-    
     public function down()
     {
         Schema::dropIfExists('profilehistories');
     }
-
 }
