@@ -35,20 +35,22 @@
                                 <th width="10%">氏名</th>
                                 <th width="10%">性別</th>
                                 <th width="10%">趣味</th>
-                                <th width="10%">自己紹介</th>
+                                <th width="40%">自己紹介</th>
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $profile)
                                 <tr>
-                                    <th>{{ $profile->id }}</th>
-                                    <td>{{ \Str::limit($profile->title, 100) }}</td>
-                                    <td>{{ \Str::limit($profile->body, 250) }}</td>
-                                    <td>
+                                    <th width="10%">{{ $profile->id }}</th>
+                                    <td width="10%">{{ \Str::limit($profile->name, 50) }}</td>
+                                    <td width="10%">{{ \Str::limit($profile->gender, 10) }}</td>
+                                    <td width="10%">{{ \Str::limit($profile->hobby, 10) }}</td>
+                                    <td width="40%">{{ \Str::limit($profile->introduction, 100) }}</td>
+                                    <td width="10%">
                                         <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
                                     </td>
-                                    <td>
+                                    <td width="10%">
                                         <a href="{{ action('Admin\ProfileController@delete', ['id' => $profile->id]) }}">削除</a>
                                     </td>
                                 </tr>
