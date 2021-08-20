@@ -1,5 +1,5 @@
 @extends('layouts.profile')
-@section('title', '登録済み profile')
+@section('title', '登録済み プロフィール')
 
 @section('content')
     <div class="container">
@@ -13,7 +13,7 @@
             <div class="col-md-8">
                 <form action="{{ action('Admin\ProfileController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">氏名</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                         </div>
@@ -32,8 +32,11 @@
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
-                                <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
+                                <th width="10%">氏名</th>
+                                <th width="10%">性別</th>
+                                <th width="10%">趣味</th>
+                                <th width="10%">自己紹介</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
