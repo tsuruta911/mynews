@@ -74,21 +74,19 @@ class ProfileController extends Controller
       // 送信されてきたフォームデータを格納する
       $profile_form = $request->all();
       
-      unset($profile_form['image']);
-      unset($profile_form['remove']);
       unset($profile_form['_token']);
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
       
       $profilehistory = new ProfileHistory;
-        $profilehistory ->profile_id = $profile->id;
-        $profilehistory ->edited_at = Carbon::now();
-        $profilehistory ->save();
+        $profilehistory->profile_id = $profile->id;
+        $profilehistory->edited_at = Carbon::now();
+        $profilehistory->save();
 
       return redirect('admin/profile');
   }
   
-  // 以下を追記　　
+  // 以下を追記
   public function delete(Request $request)
   {
       // 該当するNews Modelを取得
